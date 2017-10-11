@@ -8,8 +8,8 @@
   display: flex;
   justify-content: center;
   background-color: #b4dc78;
-  height: 100vh;
-  width: 100vw; }
+  
+}
 
 .login {
   height: 100px;
@@ -47,4 +47,38 @@
 .move-right {
   margin-left:70px;
   margin-top:0px;
+}
+
+.gallery {
+  height: 900px;
+  width:800px;
+  border-style: solid;
+  border-color: red;
+}
+
+.posts {
+  height: 900px;
+  width:800px;
+  border-style: solid;
+  border-color: blue;
+  justify-content: center;
+  display: flex;
+}
+
+.music {
+  height: 900px;
+  width:800px;
+  border-style: solid;
+  border-color: yellow;
+  justify-content: center;
+  display: flex;
+}
+
+.recent-posts {
+  height: 900px;
+  width:800px;
+  border-style: solid;
+  border-color: rgb(196, 19, 166);
+  justify-content: center;
+  display: flex;
 }

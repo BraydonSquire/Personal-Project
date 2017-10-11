@@ -31,19 +31,19 @@ componentDidMount() {
         const user = this.props.user;
         return (
             <div>
-                {/* {JSON.stringify(this.state.userInfo, null, 2)}  */}
-                {/* this is displaying the userInfo state first */}
-                {/* JSON.stringify lets you display an object in react by converting it to a string value */}
+                
                
-               <div className="move-right">
+               <div className="flex">
                 <img className="sass-box" src="https://xenimanyme.files.wordpress.com/2017/07/cropped-xeni-logo-8.png?w=1180&h=533" alt=''/>
                 </div>
-                <div className="nav-container">
+                <div className="flex">
                 <Nav />
                 </div>
-                <div className="flex">
-                <a href='http://localhost:3001/auth/logout'><button className="logout">Log out</button></a>
-                </div>
+                
+                    <div className="recent-posts">
+                        
+                    </div>
+
                 </div>
              
         )
