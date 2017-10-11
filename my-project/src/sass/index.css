@@ -1,0 +1,50 @@
+.sass-box {
+  width: 600px;
+  height: 300px;
+  margin-bottom: 30px;
+}
+
+.App-parent {
+  display: flex;
+  justify-content: center;
+  background-color: #b4dc78;
+  height: 100vh;
+  width: 100vw; }
+
+.login {
+  height: 100px;
+  width: 200px; }
+
+.flex {
+  display: flex;
+  justify-content: center;
+   }
+
+.logout {
+  height: 60px;
+  width: 160px; }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: orange;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  height: 40px;
+  width: 750px;
+}
+
+.navlink {
+  color: white;
+  text-decoration: none; 
+  margin: 7px 
+}
+
+.textdecor {
+  text-decoration: none; }
+
+.move-right {
+  margin-left:70px;
+  margin-top:0px;
+}
