@@ -4,6 +4,7 @@ import { getUserInfo } from './../ducks/users'; // the first ./ says start in th
 import { connect } from 'react-redux';
 import Nav from './Nav';
 
+
 export class Home extends Component {
     constructor(props) {
         super(props);
@@ -29,19 +30,23 @@ componentDidMount() {
     
     render() {
         const user = this.props.user;
+        
         return (
             <div>
                 
-               
-               <div className="flex">
-                <img className="sass-box" src="https://xenimanyme.files.wordpress.com/2017/07/cropped-xeni-logo-8.png?w=1180&h=533" alt=''/>
+                <div className="title-bar">
+                <img className="sass-box-title" src="https://xenimanyme.files.wordpress.com/2017/07/cropped-xeni-logo-8.png?w=1180&h=533" alt=''/>
+               <span className="many-me">Many Me</span>
                 </div>
+               
                 <div className="flex">
-                <Nav />
+                <Nav header="Home" />
                 </div>
                 
                     <div className="recent-posts">
-                        
+                    <iframe width="854" height="480" src="https://www.youtube.com/embed/bhIl7zm77_s" frameborder="0" allowfullscreen></iframe>
+                   
+                   
                     </div>
 
                 </div>

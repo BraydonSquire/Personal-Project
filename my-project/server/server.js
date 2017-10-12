@@ -4,7 +4,8 @@ session = require('express-session'),
 bodyParser = require('body-parser'),
 massive = require('massive'),
 passport = require('passport'),
-Auth0Strategy = require('passport-auth0');
+Auth0Strategy = require('passport-auth0')
+controller = require('./controller');
 
 
 const app = express();
@@ -86,6 +87,8 @@ passport.deserializeUser( (id, done) => {//deserializeUser also takes a callback
     })
 });
 
+
+app.get('/api/allblogs', controller.getBlogs)
 
 
 

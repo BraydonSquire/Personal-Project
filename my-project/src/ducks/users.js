@@ -7,13 +7,13 @@ const initialState = { //when the app is first run there is no state that is cre
 const GET_USER_INFO = 'GET_USER_INFO';
 
 export function getUserInfo() {
-    const userData = axios.get('/auth/me')
+    const userData = axios.get('/auth/me')//this is an action (same thing as an action creator)
     .then( res => {
         return res.data
     })
     return {
         type:GET_USER_INFO ,
-        payload: userData
+        payload: userData //
     }
 }
 
@@ -24,8 +24,9 @@ export default function reducer(state = initialState, action) { //state = initia
        //after the case you concatinate it (Add on to) with '_FULFILLED'
        case GET_USER_INFO + '_FULFILLED':
             return Object.assign( {}, state, {user: action.payload})
-            // break;
-            // if there were more case's you would seperate with break; statements
+            // break; if the case didn't return something and be FULFILLED you would need a break to stop it
+            
+            //once a case is fulfilled it stops the function 
        default:
         return state;     
    }
