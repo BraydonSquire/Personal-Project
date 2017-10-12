@@ -17,6 +17,7 @@ export function getUserInfo() {
     }
 }
 
+//const GET_ALL_BLOGS
 
 export default function reducer(state = initialState, action) { //state = initialState is setup to not break the app when it is first run, since the state is originally undefined. state will only equals
     //initialState if state is undefined. otherwise state will equal the current state, and not the initial state.
