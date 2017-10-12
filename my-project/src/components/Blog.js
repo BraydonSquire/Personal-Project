@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Nav from './Nav';
+import { getBlogs } from './../ducks/users';
+import { connect } from 'react-redux';
 
 
 class Blog extends Component {
@@ -11,10 +13,14 @@ constructor() {
     }
 }
 
-// componentDidMount()
+ componentDidMount() {
+     this.props.getBlogs();
+
+ }
 //for displaying blog post
 
     render(){
+       const blogPosts = this.props.blogPosts;
         return(
             <div>
             
@@ -28,10 +34,20 @@ constructor() {
             </div>
             
                 <div className="posts">
-
+                    {/* {blogPosts[0]} */}
                 </div>
 
             </div>
         )
     }
-} export default Blog;
+} 
+
+function mapStateToProps(state) {
+    console.log('state from blog view', state.blogPosts);
+    return {
+        blogPosts: state.blogPosts
+    }
+}
+
+
+export default connect(mapStateToProps, { getBlogs })(Blog);
