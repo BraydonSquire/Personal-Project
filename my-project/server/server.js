@@ -89,7 +89,11 @@ passport.deserializeUser( (id, done) => {//deserializeUser also takes a callback
 
 
 app.get('/api/allblogs', controller.getBlogs)
+//set endpoint named what you want then add the logic
+//from the controller function
 
+
+app.get('/api/allphotos', controller.getPhotos)
 
 
 const port = 3001;

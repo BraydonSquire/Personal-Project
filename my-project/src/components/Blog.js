@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Nav from './Nav';
-import { getBlogs } from './../ducks/users';
-import { connect } from 'react-redux';
+import { getBlogs } from './../ducks/users'; //import needed prop from reducer
+import { connect } from 'react-redux';//import connect to make this component subscribe to the store
 
 
 class Blog extends Component {
@@ -14,13 +14,20 @@ constructor() {
 }
 
  componentDidMount() {
-     this.props.getBlogs();
-
+     this.props.getBlogs(); //prop imported from reducer
+    
  }
 //for displaying blog post
 
     render(){
        const blogPosts = this.props.blogPosts;
+       let list = blogPosts.map( (item, i) => {
+           return (
+               <div className="post-container"> {item.title}  
+                <div className="post-content"> {item.date} </div>
+                </div>
+           )
+       })
         return(
             <div>
             
@@ -34,7 +41,7 @@ constructor() {
             </div>
             
                 <div className="posts">
-                    {/* {blogPosts[0]} */}
+                    {list}
                 </div>
 
             </div>

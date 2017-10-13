@@ -67,6 +67,7 @@
   border-style: solid;
   border-color: red;
   margin: auto;
+  justify-content: space-between;
 }
 
 .posts {
@@ -74,9 +75,11 @@
   width:800px;
   border-style: solid;
   border-color: blue;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   display: flex;
   margin: auto;
+  justify-content: center;
 }
 
 .music {
@@ -189,4 +192,34 @@
 .many-me {
   position: absolute;
   top:20px;
+}
+
+.photo-box {
+  height: 200px;
+  width: 200px;
+}
+
+.post-container {
+  width: 80%;
+  height: 10%;
+  border-style: solid;
+  border-width: 4px;
+  border-color: green;
+  border-radius: 3px;
+  color: white;
+  background:purple;
+  margin: 30px;
+  
+  
+}
+
+.post-content {
+  margin-top: 10px;
+  font-weight: 200;
+  color: white;
+}
+
+.input-box {
+  align-self: center;
+  margin: 50px;
 }
