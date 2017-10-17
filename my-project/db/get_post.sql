@@ -1,0 +1,1 @@
+SELECT * FROM blog WHERE blogid = $1

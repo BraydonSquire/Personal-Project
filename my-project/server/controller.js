@@ -14,5 +14,13 @@ module.exports = {
             console.log(response)
             res.status(200).send(response)
         })
+    },
+    getPost: (req, res, next) => {
+        const db = req.app.get('db')
+        db.get_post()
+        .then(response => {
+            console.log(response)
+            res.status(200).send(response)
+        })
     }
 }

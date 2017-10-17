@@ -49,7 +49,7 @@ componentDidMount() {
                 
             </div>
 
-            <AddPhoto className="input-box" />
+            <AddPhoto  />
 
             </div>
             //addphoto component here

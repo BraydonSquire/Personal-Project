@@ -14,7 +14,8 @@ constructor() {
 }
 
  componentDidMount() {
-     this.props.getBlogs(); //prop imported from reducer
+    setTimeout( this.props.getBlogs() , 1200);
+      //prop imported from reducer
     
  }
 //for displaying blog post
@@ -23,8 +24,13 @@ constructor() {
        const blogPosts = this.props.blogPosts;
        let list = blogPosts.map( (item, i) => {
            return (
-               <div className="post-container"> {item.title}  
-                <div className="post-content"> {item.date} </div>
+               <div className="post-container">
+                    {item.title}  
+                    <a href="#/post" className="post-button textdecor">View Full Post</a>
+                <div className="post-content"> 
+                {item.date}
+                
+                 </div>
                 </div>
            )
        })
@@ -42,6 +48,7 @@ constructor() {
             
                 <div className="posts">
                     {list}
+                    
                 </div>
 
             </div>

@@ -6,6 +6,7 @@ import Home from './Home';
 import Gallery from './Gallery';
 import Music from './Music';
 import Blog from './Blog';
+import Post from './Post';
 import './../sass/index.sass';
 
 
@@ -20,6 +21,7 @@ class Routers extends Component {
                     <Route path='/gallery' component={ Gallery } />
                     <Route path='/music' component={Music} />
                     <Route path='/blog' component={Blog} /> 
+                    <Route path='/post' component={Post} />
                 </div>
             </Router>
         )

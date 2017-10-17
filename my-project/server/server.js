@@ -95,6 +95,8 @@ app.get('/api/allblogs', controller.getBlogs)
 
 app.get('/api/allphotos', controller.getPhotos)
 
+app.get('/api/post', controller.getPost)
+
 
 const port = 3001;
 app.listen(port, () => {
