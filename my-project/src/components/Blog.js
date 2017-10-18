@@ -24,7 +24,7 @@ constructor() {
        const blogPosts = this.props.blogPosts;
        let list = blogPosts.map( (item, i) => {
            return (
-               <div className="post-container">
+               <div className="post-container" key={i}>
                     {item.title}  
                     <a href="#/post" className="post-button textdecor">View Full Post</a>
                 <div className="post-content"> 

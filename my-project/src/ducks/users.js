@@ -3,7 +3,8 @@ import axios from 'axios';
 const initialState = { //when the app is first run there is no state that is created yet so we must declare an initialState first
     user: {},
     blogPosts:[{content: '', title: ''}], //the initialstate is treated as PROPS :D
-    photos:[{link: ''}]
+    photos:[{link: ''}],
+    post:'redux props state'
 }
 
 const GET_USER_INFO = 'GET_USER_INFO';
@@ -52,7 +53,7 @@ const GET_BLOG_POST = 'GET_BLOG_POST'
 
 export function getPost() {
     console.log('getting blog post')
-    const post = axios.get('/api/post')
+    const post = axios.get('/api/post/:id')
     .then( res => {
         console.log('post content:', res.data)
         return res.data

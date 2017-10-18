@@ -17,9 +17,9 @@ module.exports = {
     },
     getPost: (req, res, next) => {
         const db = req.app.get('db')
-        db.get_post()
+        db.get_post([req.params.id])
         .then(response => {
-            console.log(response)
+            console.log(response,req.params.id)
             res.status(200).send(response)
         })
     }

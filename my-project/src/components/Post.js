@@ -14,10 +14,16 @@ class Post extends Component {
         }
     }
 
+    componentDidMount() {
+        setTimeout( this.props.getPost(), 1200 )
+    }
+
 
 
 
     render() {
+            const post = this.props.post;
+            
         return (
             <div>
             
@@ -32,7 +38,7 @@ class Post extends Component {
             
                 <div className="posts">
                     <div className="full-post">
-                        {this.state.post}
+                        {this.props.post}
                     </div>
                     
                 </div>
@@ -45,7 +51,7 @@ class Post extends Component {
 
 
 function mapStateToProps(state) {
-    console.log('state from post view', state.post);
+    console.log('state from post view', this.state);
     return {
         post: state.post
     }
