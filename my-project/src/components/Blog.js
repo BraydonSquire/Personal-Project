@@ -16,7 +16,7 @@ constructor() {
  componentDidMount() {
     setTimeout( this.props.getBlogs() , 1200);
       //prop imported from reducer
-    
+     
  }
 //for displaying blog post
 

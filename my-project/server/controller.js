@@ -22,5 +22,13 @@ module.exports = {
             console.log(response,req.params.id)
             res.status(200).send(response)
         })
+    },
+    addPhoto: (req, res, next) => {
+        const db = req.app.get('db')
+        db.add_photo([req.params.id])
+        .then(response => {
+            console.log(response, req.params.id)
+            res.status(200).send(response)
+        })
     }
 }

@@ -4,7 +4,8 @@ const initialState = { //when the app is first run there is no state that is cre
     user: {},
     blogPosts:[{content: '', title: ''}], //the initialstate is treated as PROPS :D
     photos:[{link: ''}],
-    post:'redux props state'
+    post:'redux props state',
+    addPhoto:''
 }
 
 const GET_USER_INFO = 'GET_USER_INFO';
@@ -64,6 +65,21 @@ export function getPost() {
     }
 }
 
+const ADD_PHOTO = 'ADD_PHOTO'
+
+export function addPhoto() {
+    console.log('adding photo')
+    const add = axios.get('/api/addphoto/')
+    .then( res => {
+        console.log('photo url:', res.data)
+        return res.data
+    })
+    return {
+        type:ADD_PHOTO,
+        payload:add
+    }
+}
+
 
 
 export default function reducer(state = initialState, action) { //state = initialState is setup to not break the app when it is first run, since the state is originally undefined. state will only equals
@@ -85,6 +101,9 @@ export default function reducer(state = initialState, action) { //state = initia
 
        case GET_BLOG_POST + '_FULFILLED':
             return Object.assign( {}, state, { post: action.payload })     
+
+       case ADD_PHOTO + '_FULFILLED':
+            return Object.assign( {}, state, { addPhoto: action.payload })     
             
        default:
         return state;     

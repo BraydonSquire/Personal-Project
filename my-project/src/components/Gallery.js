@@ -16,7 +16,7 @@ constructor() {
 
     
 componentDidMount() {
-    this.props.getPhotos();
+    setTimeout(this.props.getPhotos(), 1200)
 }   
     
 
@@ -25,7 +25,7 @@ componentDidMount() {
         console.log(photos[0].id)
         let list = photos.map( (e,i) => {
     return (
-        <img className="photo-box" src={e.link} alt='' />
+        <img className="photo-box" key={i} src={e.link} alt='' />
     )
 } )
 
