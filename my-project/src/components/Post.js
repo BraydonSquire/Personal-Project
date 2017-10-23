@@ -15,7 +15,7 @@ class Post extends Component {
     }
 
     componentDidMount() {
-        setTimeout( this.props.getPost(), 1200 )
+         this.props.getPost()
     }
 
 
@@ -23,7 +23,7 @@ class Post extends Component {
 
     render() {
             const post = this.props.post;
-            
+            console.log(this.props)
         return (
             <div>
             
@@ -38,7 +38,7 @@ class Post extends Component {
             
                 <div className="posts">
                     <div className="full-post">
-                        {this.props.post}
+                        {post.content}
                     </div>
                     
                 </div>

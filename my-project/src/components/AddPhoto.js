@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { addPhoto } from './../ducks/users';
+import { addPhoto, fixPhoto } from './../ducks/users';
 
 
 class AddPhoto extends Component {
@@ -30,9 +30,9 @@ class AddPhoto extends Component {
         return(
             <div className="flex">
             
-            <input className="input-box" type='text' placeholder="New Image URL" onChange={this.setInput} />
+            <input className="input-box" type='text' placeholder="New Image URL" onChange={(e) => this.props.fixPhoto(e.target.value)} />
             
-            <button>Add Photo</button>
+            <button onClick={ () => {this.props.addPhoto(this.props.input)}}>Add Photo</button>
         
             </div>
         )
@@ -44,9 +44,10 @@ class AddPhoto extends Component {
 function mapStateToProps(state) {
     console.log('state from addPhoto component', state.input);
     return {
-        photos: state.addPhoto
+        photos: state.addPhoto,
+        input: state.input
     }
 }
 
 
-export default connect(mapStateToProps, { addPhoto })(AddPhoto);
+export default connect(mapStateToProps, { addPhoto, fixPhoto })(AddPhoto);

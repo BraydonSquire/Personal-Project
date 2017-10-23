@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Nav from './Nav';
-import { getBlogs } from './../ducks/users'; //import needed prop from reducer
+import { getBlogs, getPost } from './../ducks/users'; //import needed prop from reducer
 import { connect } from 'react-redux';//import connect to make this component subscribe to the store
 
 
@@ -26,7 +26,7 @@ constructor() {
            return (
                <div className="post-container" key={i}>
                     {item.title}  
-                    <a href="#/post" className="post-button textdecor">View Full Post</a>
+                    <a onClick={ () => {this.props.getPost(item.blogid)}} href="#/post" className="post-button textdecor">View Full Post</a>
                 <div className="post-content"> 
                 {item.date}
                 
@@ -64,4 +64,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps, { getBlogs })(Blog);
+export default connect(mapStateToProps, { getBlogs, getPost })(Blog);

@@ -24,10 +24,13 @@ module.exports = {
         })
     },
     addPhoto: (req, res, next) => {
+        console.log(req.body)
         const db = req.app.get('db')
-        db.add_photo([req.params.id])
+        db.add_photo(req.body.image)
+        // db.add_photo(this.state.input)
         .then(response => {
-            console.log(response, req.params.id)
+            // console.log(response, req.params.id)
+            
             res.status(200).send(response)
         })
     }

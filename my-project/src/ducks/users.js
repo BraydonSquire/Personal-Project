@@ -5,7 +5,8 @@ const initialState = { //when the app is first run there is no state that is cre
     blogPosts:[{content: '', title: ''}], //the initialstate is treated as PROPS :D
     photos:[{link: ''}],
     post:'redux props state',
-    addPhoto:''
+    addPhoto:'',
+    input:''
 }
 
 const GET_USER_INFO = 'GET_USER_INFO';
@@ -52,12 +53,12 @@ export function getPhotos() {
 
 const GET_BLOG_POST = 'GET_BLOG_POST'
 
-export function getPost() {
+export function getPost(id) {
     console.log('getting blog post')
-    const post = axios.get('/api/post/:id')
+    const post = axios.get('/api/post/' + id )
     .then( res => {
         console.log('post content:', res.data)
-        return res.data
+        return res.data[0]
     })
     return {
         type:GET_BLOG_POST,
@@ -67,17 +68,35 @@ export function getPost() {
 
 const ADD_PHOTO = 'ADD_PHOTO'
 
-export function addPhoto() {
-    console.log('adding photo')
-    const add = axios.get('/api/addphoto/')
-    .then( res => {
-        console.log('photo url:', res.data)
-        return res.data
-    })
-    return {
-        type:ADD_PHOTO,
-        payload:add
+export function addPhoto(images) {
+    console.log(images)
+    const image = {
+        image: images
     }
+    // const add = () => {
+         axios.post('/api/addphoto', image).then(res => {res.data})
+    //         return res.data 
+
+    //     })
+    // }
+    // const add = axios.post('/api/addphoto/',image )
+    // .then( res => {
+    //     console.log('photo url:', res.data)
+    //     return res.data
+    // })
+    return {
+        type:ADD_PHOTO
+        
+    }
+}
+
+const FIX_PHOTO = 'FIX_PHOTO'
+
+export function fixPhoto(e){
+return {
+    type:FIX_PHOTO,
+    payload:e
+}
 }
 
 
@@ -105,7 +124,10 @@ export default function reducer(state = initialState, action) { //state = initia
        case ADD_PHOTO + '_FULFILLED':
             return Object.assign( {}, state, { addPhoto: action.payload })     
             
-       default:
+       case FIX_PHOTO :
+            return Object.assign( {}, state, {input: action.payload})
+       
+            default:
         return state;     
    }
 

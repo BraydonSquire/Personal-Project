@@ -97,7 +97,7 @@ app.get('/api/allphotos', controller.getPhotos)
 
 app.get('/api/post/:id', controller.getPost)
 
-app.get('/api/addphoto/', controller.addPhoto)
+app.post('/api/addphoto', controller.addPhoto)
 
 
 const port = 3001;
