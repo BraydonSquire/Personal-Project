@@ -21,9 +21,9 @@ componentDidMount() {
     
 
     render(){
-        const photos = this.props.photos;
+        const photos = this.props.photos;//set photos as redux prop photos
         console.log(photos[0].id)
-        let list = photos.map( (e,i) => {
+        let list = photos.map( (e,i) => {//map over photos and get the links
     return (
         <img className="photo-box" key={i} src={e.link} alt='' />
     )

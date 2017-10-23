@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { addPhoto, fixPhoto } from './../ducks/users';
+import { addPhoto, fixPhoto, getPhotos } from './../ducks/users';
 
 
 class AddPhoto extends Component {
@@ -50,4 +50,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps, { addPhoto, fixPhoto })(AddPhoto);
+export default connect(mapStateToProps, { addPhoto, fixPhoto, getPhotos })(AddPhoto);

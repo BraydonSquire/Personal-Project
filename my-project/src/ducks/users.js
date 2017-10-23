@@ -4,9 +4,11 @@ const initialState = { //when the app is first run there is no state that is cre
     user: {},
     blogPosts:[{content: '', title: ''}], //the initialstate is treated as PROPS :D
     photos:[{link: ''}],
-    post:'redux props state',
+    post:[],
     addPhoto:'',
-    input:''
+    input:'',
+    comment:'',
+    blogid:''
 }
 
 const GET_USER_INFO = 'GET_USER_INFO';
@@ -99,6 +101,31 @@ return {
 }
 }
 
+const TRACK_COMMENT = 'TRACK_COMMENT'
+
+export function trackComment(e) {
+    console.log(e)
+    return{
+        type:TRACK_COMMENT,
+        payload:e
+    }
+    
+}
+
+const POST_COMMENT = 'POST_COMMENT'
+
+export function postComment(comments, blogid) {
+    const comment = {
+        comment:comments,
+        blogid: blogid
+    }
+    console.log(comment)
+    axios.post('/api/postcomment', comment).then(res => {res.data})
+
+    return {
+        type:POST_COMMENT
+    }
+}
 
 
 export default function reducer(state = initialState, action) { //state = initialState is setup to not break the app when it is first run, since the state is originally undefined. state will only equals
@@ -126,6 +153,9 @@ export default function reducer(state = initialState, action) { //state = initia
             
        case FIX_PHOTO :
             return Object.assign( {}, state, {input: action.payload})
+
+       case TRACK_COMMENT :
+            return Object.assign( {}, state, {comment: action.payload})     
        
             default:
         return state;     

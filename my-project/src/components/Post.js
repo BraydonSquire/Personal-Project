@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Nav from './Nav';
+import Comment from './Comment';
 import { connect } from 'react-redux';
 import { getPost } from './../ducks/users';
 
@@ -10,7 +11,7 @@ class Post extends Component {
         super();
 
         this.state = {
-            post:'test text'
+            post:[]
         }
     }
 
@@ -22,8 +23,21 @@ class Post extends Component {
 
 
     render() {
-            const post = this.props.post;
-            console.log(this.props)
+            const post = [this.props.post]; //wrap the props in an array so that the .map() works
+            console.log([this.props.post])
+            let fullPost = post.map( (item, i) => {
+                return(
+                    <div className="blog-container" key={i}>
+                        {item.title}
+                        <div className="date">
+                        {item.date}
+                        </div>
+                        <div className="blog-content" key={i}>
+                        {item.content}
+                        </div>
+                    </div>
+                )
+            })
         return (
             <div>
             
@@ -33,14 +47,16 @@ class Post extends Component {
            <span className="many-me">Many Me</span>
             </div>
             <div className="flex">
-            <Nav header="Post" />
+            <Nav header={this.props.post.title} />
             </div>
             
                 <div className="posts">
                     <div className="full-post">
-                        {post.content}
+                        {fullPost}
                     </div>
                     
+                    {<Comment />}
+
                 </div>
 
             </div>

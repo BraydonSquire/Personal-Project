@@ -99,6 +99,8 @@ app.get('/api/post/:id', controller.getPost)
 
 app.post('/api/addphoto', controller.addPhoto)
 
+app.post('/api/postcomment', controller.addComment)
+
 
 const port = 3001;
 app.listen(port, () => {
