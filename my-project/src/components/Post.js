@@ -17,7 +17,7 @@ class Post extends Component {
 
     componentDidMount() {
          this.props.getPost();
-        //  this.props.getComments();
+         this.props.getComments();
     }
 
 
@@ -26,6 +26,7 @@ class Post extends Component {
     render() {
             const post = [this.props.post]; //wrap the props in an array so that the .map() works
             console.log([this.props.post])
+            let comments = this.props.comments;
             let fullPost = post.map( (item, i) => {
                 return(
                     <div className="blog-container" key={i}>
@@ -36,6 +37,7 @@ class Post extends Component {
                         <div className="blog-content" key={i}>
                         {item.content}
                         </div>
+                        
                     </div>
                 )
             })
@@ -55,7 +57,8 @@ class Post extends Component {
                     <div className="full-post">
                         {fullPost}
                     </div>
-                    
+                    {post[0].comments}
+
                     <Comment />
 
                 </div>

@@ -16,8 +16,10 @@ class Comment extends Component {
 
     render(){
         const postComment = this.props.postComment;
+        // const list = this.props.
         return(
             <div className="comment-box">
+
                 <input className="comment" type='text' placeholder='Write A Comment...' onChange={(e) => this.props.trackComment(e.target.value)}/>
                 <div>
                     <button onClick={ () => {this.props.postComment(this.props.comment, this.props.post.blogid)}} className="comment-button"> Post Comment </button>

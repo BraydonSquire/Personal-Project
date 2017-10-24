@@ -62,6 +62,8 @@ export function getPost(id) {
     .then( res => {
         console.log('post content:', res.data)
         return res.data[0]
+        
+        
     })
     return {
         type:GET_BLOG_POST,
@@ -140,6 +142,7 @@ export function postComment(comments, blogid) {
    let newComments =  axios.post('/api/postcomment', comment).then(res => {
         axios.get('/api/comments/' + blogid)
         .then( res => {
+            console.log(res.data)
             return res.data
         })
     })
