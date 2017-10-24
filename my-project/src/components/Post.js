@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Nav from './Nav';
 import Comment from './Comment';
 import { connect } from 'react-redux';
-import { getPost } from './../ducks/users';
+import { getPost, getComments } from './../ducks/users';
 
 
 class Post extends Component {
@@ -16,7 +16,8 @@ class Post extends Component {
     }
 
     componentDidMount() {
-         this.props.getPost()
+         this.props.getPost();
+        //  this.props.getComments();
     }
 
 
@@ -55,7 +56,7 @@ class Post extends Component {
                         {fullPost}
                     </div>
                     
-                    {<Comment />}
+                    <Comment />
 
                 </div>
 
@@ -74,4 +75,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps, { getPost })(Post);
+export default connect(mapStateToProps, { getPost, getComments })(Post);

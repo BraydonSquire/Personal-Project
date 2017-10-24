@@ -37,9 +37,19 @@ module.exports = {
     addComment: (req, res, next) => {
         console.log(req.body, req.user)
         const db = req.app.get('db')
+        console.log(req.user.id)
         db.add_comment([req.body.comment, req.body.blogid, req.user.id])
         .then(response => {
             res.status(200).send(response)
         })
+    }
+    ,
+    getComments: (req, res, next) => {
+        console.log(req.body)
+        const db = req.app.get('db')
+    db.get_comments([req.params.id])
+    .then(response => {
+        res.status(200).send(response)
+    })
     }
 }

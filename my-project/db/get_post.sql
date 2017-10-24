@@ -1,1 +1,3 @@
-SELECT * FROM blog WHERE blogid = $1
+SELECT * FROM blog
+Join blogcomments On blog.blogid = blogcomments.blogid
+ WHERE blog.blogid = $1

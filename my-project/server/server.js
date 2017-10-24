@@ -97,6 +97,8 @@ app.get('/api/allphotos', controller.getPhotos)
 
 app.get('/api/post/:id', controller.getPost)
 
+app.get('/api/comments/:id', controller.getComments)
+
 app.post('/api/addphoto', controller.addPhoto)
 
 app.post('/api/postcomment', controller.addComment)

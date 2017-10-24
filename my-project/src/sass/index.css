@@ -65,9 +65,10 @@
 
 .gallery {
   height: 900px;
-  width:800px;
-  border-style: solid;
-  border-color: red;
+  width:900px;
+  /* border-style: solid;
+  border-color: red; */
+  background-color: gray;
   margin: auto;
   justify-content: space-around;
   flex-direction: row;
@@ -209,6 +210,8 @@
   margin: 7px;
   border-color: red;
   border-style: solid;
+  border-radius: 3px;
+  background-color:whitesmoke;
 }
 
 .post-container {

@@ -8,6 +8,7 @@ const initialState = { //when the app is first run there is no state that is cre
     addPhoto:'',
     input:'',
     comment:'',
+    comments:'',
     blogid:''
 }
 
@@ -68,6 +69,21 @@ export function getPost(id) {
     }
 }
 
+const GET_COMMENTS = 'GET_COMMENTS'
+
+export function getComments(id) {
+    console.log('getting comments')
+    const comment = axios.get('/api/comments/' + id )
+    .then( res => {
+        console.log('comments', res.data)
+        return res.data
+    })
+    return {
+        type:GET_COMMENTS,
+        payload:comment
+    }
+}
+
 const ADD_PHOTO = 'ADD_PHOTO'
 
 export function addPhoto(images) {
@@ -120,10 +136,18 @@ export function postComment(comments, blogid) {
         blogid: blogid
     }
     console.log(comment)
-    axios.post('/api/postcomment', comment).then(res => {res.data})
+    
+   let newComments =  axios.post('/api/postcomment', comment).then(res => {
+        axios.get('/api/comments/' + blogid)
+        .then( res => {
+            return res.data
+        })
+    })
+    
 
     return {
-        type:POST_COMMENT
+        type:POST_COMMENT,
+        payload:newComments
     }
 }
 
@@ -155,7 +179,10 @@ export default function reducer(state = initialState, action) { //state = initia
             return Object.assign( {}, state, {input: action.payload})
 
        case TRACK_COMMENT :
-            return Object.assign( {}, state, {comment: action.payload})     
+            return Object.assign( {}, state, {comment: action.payload})
+            
+       case GET_COMMENTS:
+            return Object.assign( {}, state, { comments: action.payload })     
        
             default:
         return state;     
