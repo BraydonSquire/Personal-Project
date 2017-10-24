@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Nav from './Nav';
 import Comment from './Comment';
 import { connect } from 'react-redux';
-import { getPost, getComments } from './../ducks/users';
+import { getPost, getComments, postComment } from './../ducks/users';
 
 
 class Post extends Component {
@@ -11,22 +11,32 @@ class Post extends Component {
         super();
 
         this.state = {
-            post:[]
+            post:[],
+            comments: []
         }
     }
 
     componentDidMount() {
          this.props.getPost();
-         this.props.getComments();
+        //  this.props.getComments();
     }
 
 
 
 
     render() {
+        const comment = this.props.comments
+        console.log(this.props.comments)
             const post = [this.props.post]; //wrap the props in an array so that the .map() works
-            console.log([this.props.post])
-            let comments = this.props.comments;
+            console.log(this.props.post)
+            // const comments = this.props.comments;
+            // .map( (item,i) => {
+            //     return(
+            //         <div>
+            //             {item.comments}
+            //         </div>
+            //     )
+            // } ) ;
             let fullPost = post.map( (item, i) => {
                 return(
                     <div className="blog-container" key={i}>
@@ -57,8 +67,8 @@ class Post extends Component {
                     <div className="full-post">
                         {fullPost}
                     </div>
-                    {post[0].comments}
-
+                    
+                
                     <Comment />
 
                 </div>
@@ -71,11 +81,12 @@ class Post extends Component {
 
 
 function mapStateToProps(state) {
-    console.log('state from post view', this.state);
+    console.log('state from post view', state.comments);
     return {
-        post: state.post
+        post: state.post,
+        comments: state.comments
     }
 }
 
 
-export default connect(mapStateToProps, { getPost, getComments })(Post);
+export default connect(mapStateToProps, { getPost, getComments, postComment  })(Post);

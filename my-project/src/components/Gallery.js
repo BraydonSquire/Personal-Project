@@ -26,7 +26,7 @@ componentDidMount() {
         let list = photos.map( (e,i) => {//map over photos and get the links
     return (
         
-        <img className="photo-box" key={i} src={e.link} alt='' />
+        <img id="photo" className="photo-box" key={i} src={e.link} alt='' />
     
     )
 } )

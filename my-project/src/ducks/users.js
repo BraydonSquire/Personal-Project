@@ -8,7 +8,7 @@ const initialState = { //when the app is first run there is no state that is cre
     addPhoto:'',
     input:'',
     comment:'',
-    comments:'',
+    comments:[{comments:''}],
     blogid:''
 }
 
@@ -139,8 +139,8 @@ export function postComment(comments, blogid) {
     }
     console.log(comment)
     
-   let newComments =  axios.post('/api/postcomment', comment).then(res => {
-        axios.get('/api/comments/' + blogid)
+   const newComments =  axios.post('/api/postcomment', comment).then(res => {
+       return axios.get('/api/comments/' + blogid) //if your chaining a axios get RETURN IT!!!!
         .then( res => {
             console.log(res.data)
             return res.data
@@ -153,6 +153,7 @@ export function postComment(comments, blogid) {
         payload:newComments
     }
 }
+
 
 
 export default function reducer(state = initialState, action) { //state = initialState is setup to not break the app when it is first run, since the state is originally undefined. state will only equals
@@ -186,6 +187,23 @@ export default function reducer(state = initialState, action) { //state = initia
             
        case GET_COMMENTS:
             return Object.assign( {}, state, { comments: action.payload })     
+       
+
+       case POST_COMMENT + '_FULFILLED':
+            console.log(action)
+            return Object.assign( {}, state, {comments: action.payload})
+
+            case POST_COMMENT + '_PENDING':
+            console.log('pending',action)
+            return Object.assign( {}, state, {comments: action.payload})
+
+            case POST_COMMENT + '_REJECTED':
+            console.log('rejected',action)
+            return Object.assign( {}, state, {comments: action.payload})
+
+            case POST_COMMENT :
+            console.log('no string',action)
+            return Object.assign( {}, state, {comments: action.payload})
        
             default:
         return state;     

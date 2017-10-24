@@ -327,3 +327,12 @@
   height: 50px;
   width: 100%;
 }
+
+/* #photo {
+  width:100%;
+} */
+
+#photo:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+}
