@@ -21,6 +21,7 @@ componentDidMount() {
     
 
     render(){
+        console.log('user ID',this.props.user.id)
         const photos = this.props.photos;//set photos as redux prop photos
         console.log(photos[0].id)
         let list = photos.map( (e,i) => {//map over photos and get the links
@@ -51,7 +52,7 @@ componentDidMount() {
                 
             </div>
 
-            <AddPhoto  />
+            { this.props.user.id===1 ? <AddPhoto  /> : null}
 
             </div>
             //addphoto component here
@@ -62,7 +63,8 @@ componentDidMount() {
 function mapStateToProps(state) {
     console.log('state from Gallery view', state.photos);
     return {
-        photos: state.photos
+        photos: state.photos,
+        user: state.user
     }
 }
 
