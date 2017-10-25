@@ -110,6 +110,7 @@
   border-color: rgb(196, 19, 166);
   justify-content: center;
   display: flex;
+  flex-wrap: wrap;
   margin: auto;
 }
 

@@ -47,6 +47,14 @@ componentDidMount() {
                     <iframe width="854" height="480" src="https://www.youtube.com/embed/bhIl7zm77_s" frameBorder="0" allowFullScreen></iframe>
                    
                     {/* <a href=""> */}
+
+                    {/* <div>FOLLOW ME!</div> */}
+
+
+                    <a href="https://www.facebook.com/kendrajeansquire"><img  src="https://image.ibb.co/mBLPvm/if_facebook_2308066.png" alt='' /></a>
+                    <a href="https://www.instagram.com/k.andendsinendra/"><img  src="https://image.ibb.co/g3TBam/if_instagram_2308118.png" alt='' /></a>                    
+                    <a href="https://twitter.com/KendraJean2"><img  src="https://image.ibb.co/idbKT6/if_twitter_2308045.png" alt='' /></a>
+                    <a href="https://www.youtube.com/user/pianoplayer7771"><img  src="https://image.ibb.co/kMB8MR/if_youtube2_2308040.png" alt='' /></a>
                    
                     </div>
 
