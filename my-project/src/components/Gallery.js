@@ -3,6 +3,7 @@ import Nav from './Nav';
 import { getPhotos } from './../ducks/users';
 import { connect } from 'react-redux';
 import AddPhoto from './AddPhoto';
+import ImageZoom from 'react-medium-image-zoom';
 
 class Gallery extends Component {
 
@@ -26,8 +27,7 @@ componentDidMount() {
         console.log(photos[0].id)
         let list = photos.map( (e,i) => {//map over photos and get the links
     return (
-        
-        <img id="photo" className="photo-box" key={i} src={e.link} alt='' />
+        <ImageZoom image={{ id:"photo", className:"photo-box", key:i, src:e.link, alt:''}} /> 
     
     )
 } )
@@ -53,9 +53,9 @@ componentDidMount() {
             </div>
 
             { this.props.user.id===1 ? <AddPhoto  /> : null}
-
+                
             </div>
-            //addphoto component here
+            //conditionally rendering the addphoto only if the user is the admin
         )
     }
 }

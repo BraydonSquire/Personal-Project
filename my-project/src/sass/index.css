@@ -1,3 +1,10 @@
+*{
+  margin: 0px;
+  padding: 0px;
+} 
+/* the * at the top just means it targets the root container (I think) but it works to get rid of that annoying margin around the edges */
+
+
 .sass-box {
   width: 500px;
   height: 150px;

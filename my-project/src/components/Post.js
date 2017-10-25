@@ -20,9 +20,14 @@ class Post extends Component {
     
 
     componentDidMount() {
+        console.log('hey')
+        
          this.props.getPost();
          this.props.getComments(this.props.post.blogid);
+         console.log(this.props.post.blogid)//figure this out
     }
+    
+    
 
 
 

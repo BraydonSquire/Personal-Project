@@ -190,7 +190,7 @@ export default function reducer(state = initialState, action) { //state = initia
             return Object.assign( {}, state, {comment: action.payload})
             
        case GET_COMMENTS + '_FULFILLED':
-            console.log('getComments action',action)
+            console.log('getComments payload',action.payload)
             return Object.assign( {}, state, { comments: action.payload })     
        
 
