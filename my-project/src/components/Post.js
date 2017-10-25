@@ -16,27 +16,33 @@ class Post extends Component {
         }
     }
 
+
+    
+
     componentDidMount() {
          this.props.getPost();
-        //  this.props.getComments();
+         this.props.getComments(this.props.post.blogid);
     }
 
 
 
 
     render() {
-        const comment = this.props.comments
-        console.log(this.props.comments)
+        const comment = this.props.comments || [];//set it to null if this.props.comments doesn't have the comments yet.
+        // console.log(this.props.comments)
+        let list = comment.map( (e, i) => {
+            return(
+                <div key={i} className="comment-list">
+                    {e.comments}
+                </div>
+            )
+        })
+
+    
+    
             const post = [this.props.post]; //wrap the props in an array so that the .map() works
-            console.log(this.props.post)
-            // const comments = this.props.comments;
-            // .map( (item,i) => {
-            //     return(
-            //         <div>
-            //             {item.comments}
-            //         </div>
-            //     )
-            // } ) ;
+            console.log('this.props.post',this.props.post)
+          
             let fullPost = post.map( (item, i) => {
                 return(
                     <div className="blog-container" key={i}>
@@ -51,6 +57,9 @@ class Post extends Component {
                     </div>
                 )
             })
+
+            
+
         return (
             <div>
             
@@ -68,7 +77,7 @@ class Post extends Component {
                         {fullPost}
                     </div>
                     
-                
+                    {list}
                     <Comment />
 
                 </div>
@@ -81,7 +90,7 @@ class Post extends Component {
 
 
 function mapStateToProps(state) {
-    console.log('state from post view', state.comments);
+    // console.log('state from post view', state.comments);
     return {
         post: state.post,
         comments: state.comments

@@ -45,7 +45,7 @@ module.exports = {
     }
     ,
     getComments: (req, res, next) => {
-        console.log(req.body)
+        console.log('getComments controller',req.params)
         const db = req.app.get('db')
     db.get_comments([req.params.id])
     .then(response => {

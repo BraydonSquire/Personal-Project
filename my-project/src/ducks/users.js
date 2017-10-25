@@ -2,13 +2,13 @@ import axios from 'axios';
 
 const initialState = { //when the app is first run there is no state that is created yet so we must declare an initialState first
     user: {},
-    blogPosts:[{content: '', title: ''}], //the initialstate is treated as PROPS :D
+    blogPosts:[], //the initialstate is treated as PROPS :D
     photos:[{link: ''}],
-    post:[],
+    post:[{blogid:''}],
     addPhoto:'',
     input:'',
     comment:'',
-    comments:[{comments:''}],
+    comments:[],
     blogid:''
 }
 
@@ -30,7 +30,7 @@ const GET_ALL_BLOGS = 'GET_ALL_BLOGS'; //set it as a string value because reason
 export function getBlogs() { //export the function after the const is defined
     const blogPosts = axios.get('/api/allblogs') //the payload is equal to axios.get('the endpoint you made with the controller logic in the server file')
     .then( res => { //the payload is also equal to everything after the endpoint. it's equal to the whole function basically
-        console.log(res.data)
+        console.log('get all blogs',res.data)
         return res.data
     })
     return {
@@ -57,7 +57,7 @@ export function getPhotos() {
 const GET_BLOG_POST = 'GET_BLOG_POST'
 
 export function getPost(id) {
-    console.log('getting blog post')
+    console.log('getting blog post',id)
     const post = axios.get('/api/post/' + id )
     .then( res => {
         console.log('post content:', res.data)
@@ -71,20 +71,7 @@ export function getPost(id) {
     }
 }
 
-const GET_COMMENTS = 'GET_COMMENTS'
 
-export function getComments(id) {
-    console.log('getting comments')
-    const comment = axios.get('/api/comments/' + id )
-    .then( res => {
-        console.log('comments', res.data)
-        return res.data
-    })
-    return {
-        type:GET_COMMENTS,
-        payload:comment
-    }
-}
 
 const ADD_PHOTO = 'ADD_PHOTO'
 
@@ -137,10 +124,10 @@ export function postComment(comments, blogid) {
         comment:comments,
         blogid: blogid
     }
-    console.log(comment)
+    
     
    const newComments =  axios.post('/api/postcomment', comment).then(res => {
-       return axios.get('/api/comments/' + blogid) //if your chaining a axios get RETURN IT!!!!
+       return axios.get('/api/comments/' + blogid) //if your chaining an axios get RETURN IT!!!!
         .then( res => {
             console.log(res.data)
             return res.data
@@ -154,11 +141,28 @@ export function postComment(comments, blogid) {
     }
 }
 
+const GET_COMMENTS = 'GET_COMMENTS'
+
+export function getComments(blogid) {
+    console.log('getting comments',blogid)
+    const comment = axios.get('/api/comments/' + blogid )
+    .then( res => {
+        console.log('comments', res.data)
+        return res.data
+    })
+    return {
+        type:GET_COMMENTS,
+        payload:comment
+    }
+}
+
 
 
 export default function reducer(state = initialState, action) { //state = initialState is setup to not break the app when it is first run, since the state is originally undefined. state will only equals
+   
     //initialState if state is undefined. otherwise state will equal the current state, and not the initial state.
-   switch(action.type) {
+   
+    switch(action.type) {
        //after the case you concatinate it (Add on to) with '_FULFILLED'
        case GET_USER_INFO + '_FULFILLED':
             return Object.assign( {}, state, { user: action.payload })
@@ -185,7 +189,8 @@ export default function reducer(state = initialState, action) { //state = initia
        case TRACK_COMMENT :
             return Object.assign( {}, state, {comment: action.payload})
             
-       case GET_COMMENTS:
+       case GET_COMMENTS + '_FULFILLED':
+            console.log('getComments action',action)
             return Object.assign( {}, state, { comments: action.payload })     
        
 

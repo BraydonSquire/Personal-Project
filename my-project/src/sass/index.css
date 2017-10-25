@@ -86,6 +86,7 @@
   display: flex;
   margin: auto;
   justify-content: center;
+  position: relative;
 }
 
 .music {
@@ -285,6 +286,7 @@
   width:100%;
   color: white;
   font-size: 20px;
+  margin-bottom:30px;
 }
 
 .blog-container {
@@ -335,4 +337,14 @@
 #photo:hover {
   transform: scale(1.5);
   cursor: pointer;
+}
+
+.comment-list {
+  color: whitesmoke;
+  border-color: rgba(255, 255, 255, 0.288);
+  width:100%;
+  border-style: solid;
+  height: 20%;
+  border-radius: 3px;
+  left: 5px;
 }
