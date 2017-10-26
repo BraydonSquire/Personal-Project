@@ -1,6 +1,7 @@
 *{
   margin: 0px;
   padding: 0px;
+  font-family: 'Fjalla One', sans-serif;
 } 
 /* the * at the top just means it targets the root container (I think) but it works to get rid of that annoying margin around the edges */
 
@@ -231,7 +232,7 @@
   border-color: rgb(18, 32, 109);
   border-radius: 3px;
   color: rgb(36, 32, 32);
-  background:rgb(255, 255, 255);
+  background:rgb(244, 245, 244);
   margin: 30px;
   font-weight: 400;
   font-size: 20px;
@@ -356,3 +357,4 @@
   border-radius: 3px;
   left: 5px;
 }
+

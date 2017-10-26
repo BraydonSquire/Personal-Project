@@ -57,7 +57,7 @@ constructor() {
 } 
 
 function mapStateToProps(state) {
-    console.log('state from blog view', state.blogPosts);
+    // console.log('state from blog view', state.blogPosts);
     return {
         blogPosts: state.blogPosts
     }

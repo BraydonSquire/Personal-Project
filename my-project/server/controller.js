@@ -45,11 +45,19 @@ module.exports = {
     }
     ,
     getComments: (req, res, next) => {
-        console.log('getComments controller',req.params)
+        console.log('getComments controller',req.params.id)
         const db = req.app.get('db')
     db.get_comments([req.params.id])
     .then(response => {
         res.status(200).send(response)
     })
+    },
+    deleteComment: (req, res, next) => {
+        console.log('deleting comment',req.params.id)
+        const db = req.app.get('db')
+        db.delete_comment([req.params.id])
+        .then(response => {
+            res.status(200).send(response)
+        })
     }
 }

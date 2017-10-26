@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Nav from './Nav';
 import Comment from './Comment';
 import { connect } from 'react-redux';
-import { getPost, getComments, postComment } from './../ducks/users';
+import { getPost, getComments, postComment, deleteComment } from './../ducks/users';
 
 
 class Post extends Component {
@@ -24,7 +24,7 @@ class Post extends Component {
         
          this.props.getPost();
          this.props.getComments(this.props.post.blogid);
-         console.log(this.props.post.blogid)//figure this out
+         console.log('componentDidMount blogid',this.props.post.blogid)//figure this out
     }
     
     
@@ -39,6 +39,9 @@ class Post extends Component {
             return(
                 <div key={i} className="comment-list">
                     {e.comments}
+                    { this.props.user.id===1 || e.userid===this.props.user.id ? 
+                    <button onClick={ () => {deleteComment(e.commentid);
+                     getComments(this.props.post.blogid)} }>Delete Comment</button> : null}
                 </div>
             )
         })
@@ -98,9 +101,11 @@ function mapStateToProps(state) {
     // console.log('state from post view', state.comments);
     return {
         post: state.post,
-        comments: state.comments
+        comments: state.comments,
+        user: state.user,
+        deletedComment: state.deletedComment
     }
 }
 
 
-export default connect(mapStateToProps, { getPost, getComments, postComment  })(Post);
+export default connect(mapStateToProps, { getPost, getComments, postComment, deleteComment  })(Post);

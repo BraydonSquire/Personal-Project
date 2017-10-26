@@ -1,0 +1,1 @@
+DELETE FROM blogcomments WHERE commentid = $1;

@@ -9,7 +9,8 @@ const initialState = { //when the app is first run there is no state that is cre
     input:'',
     comment:'',
     comments:[],
-    blogid:''
+    blogid:'',
+    deletedComment:''
 }
 
 const GET_USER_INFO = 'GET_USER_INFO';
@@ -156,6 +157,20 @@ export function getComments(blogid) {
     }
 }
 
+const DELETE_COMMENT = 'DELETE_COMMENT'
+
+export function deleteComment(commentid) {
+    console.log('deleting comment case', commentid)
+    const erase = axios.delete('/api/deletecomment/' + commentid)
+    .then( res => {
+        return res.data
+    })
+    return {
+        type:DELETE_COMMENT,
+        payload:erase
+    }
+}
+
 
 
 export default function reducer(state = initialState, action) { //state = initialState is setup to not break the app when it is first run, since the state is originally undefined. state will only equals
@@ -191,7 +206,10 @@ export default function reducer(state = initialState, action) { //state = initia
             
        case GET_COMMENTS + '_FULFILLED':
             console.log('getComments payload',action.payload)
-            return Object.assign( {}, state, { comments: action.payload })     
+            return Object.assign( {}, state, { comments: action.payload })   
+            
+       case DELETE_COMMENT + '_FULFILLED':
+            return Object.assign( {}, state, {deletedComment: action.payload })     
        
 
        case POST_COMMENT + '_FULFILLED':
