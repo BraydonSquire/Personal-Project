@@ -26,7 +26,7 @@
   padding:0px;
   display: flex;
   justify-content: center;
-  background: linear-gradient(to right, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%);
+  /* background: linear-gradient(to right, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%); */
   
 }
 
@@ -264,9 +264,9 @@
 }
 
 .music-link {
-  height: 25%;
-  width: 35%;
-  margin: 10px;
+  height: 28%;
+  width: 34%;
+  /* margin: 10px; */
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -358,3 +358,31 @@
   left: 5px;
 }
 
+.soundcloud {
+  width:100%;
+  margin-top:-28px;
+}
+
+/* .video {
+  min-height: 100vh;
+  min-width: 100vw;
+
+  display: none;
+} */
+
+
+ #video-background {
+  min-height: 100vh;
+  min-width:100vw;
+  z-index: -1;
+  position: absolute;
+  left:0px;
+  border: 0 none;
+
+}
+
+.video-container {
+ /* height: 100vh;
+ width: 100vh; */
+  z-index: -1;
+}
