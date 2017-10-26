@@ -55,9 +55,13 @@ module.exports = {
     deleteComment: (req, res, next) => {
         console.log('deleting comment',req.params.id)
         const db = req.app.get('db')
-        db.delete_comment([req.params.id])
+        db.delete_comment([req.query.commentid])
         .then(response => {
-            res.status(200).send(response)
+            db.get_comments([req.query.blogid])
+            .then( response => {
+                res.status(200).send(response)
+            })
+            
         })
     }
 }

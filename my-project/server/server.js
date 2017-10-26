@@ -103,7 +103,7 @@ app.post('/api/addphoto', controller.addPhoto)
 
 app.post('/api/postcomment', controller.addComment)
 
-app.delete('/api/deletecomment/:id', controller.deleteComment)
+app.delete('/api/deletecomment', controller.deleteComment)
 
 
 const port = 3001;

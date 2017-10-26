@@ -28,6 +28,7 @@ componentDidMount() {
         let list = photos.map( (e,i) => {//map over photos and get the links
     return (
         <ImageZoom image={{ id:"photo", className:"photo-box", key:i, src:e.link, alt:''}} /> 
+        // <button></button>
     
     )
 } )
@@ -41,7 +42,7 @@ componentDidMount() {
            <span className="many-me">Many Me</span>
             </div>
             <div className="flex">
-            <Nav header="Gallery"/>
+            <Nav header="Gallery"/> 
             </div>
             
             <div className="gallery flex">

@@ -159,9 +159,9 @@ export function getComments(blogid) {
 
 const DELETE_COMMENT = 'DELETE_COMMENT'
 
-export function deleteComment(commentid) {
+export function deleteComment(commentid, blogid) {
     console.log('deleting comment case', commentid)
-    const erase = axios.delete('/api/deletecomment/' + commentid)
+    const erase = axios.delete(`/api/deletecomment/?commentid=${commentid}&blogid=${blogid}`)
     .then( res => {
         return res.data
     })
@@ -209,7 +209,7 @@ export default function reducer(state = initialState, action) { //state = initia
             return Object.assign( {}, state, { comments: action.payload })   
             
        case DELETE_COMMENT + '_FULFILLED':
-            return Object.assign( {}, state, {deletedComment: action.payload })     
+            return Object.assign( {}, state, {comments: action.payload })     
        
 
        case POST_COMMENT + '_FULFILLED':
