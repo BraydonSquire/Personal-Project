@@ -20,12 +20,12 @@
 }
 
 .App-parent {
-  height: 100%;
+  /* height: 100%;
   width:100%;
   margin:0px;
   padding:0px;
   display: flex;
-  justify-content: center;
+  justify-content: center; */
   /* background: linear-gradient(to right, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%); */
   
 }
@@ -374,7 +374,7 @@
  #video-background {
   min-height: 100vh;
   min-width:100vw;
-  z-index: -1;
+  z-index: -3;
   position: absolute;
   left:0px;
   border: 0 none;
@@ -384,5 +384,47 @@
 .video-container {
  /* height: 100vh;
  width: 100vh; */
-  z-index: -1;
+  /* z-index: -1; */
+}
+
+.title {
+  color: rgba(13, 243, 101, 0.932);
+  font-size: 170px;
+  margin: 120px;
+
+}
+.column {
+  flex-direction: column;
+}
+
+.login-button a button {
+  font-size: 50px;
+  border-radius: 12px;
+  color: whitesmoke;
+  background-color:rgb(23, 106, 161);
+}
+
+.home {
+   height: 100%;
+   width:100%; 
+  margin:0px;
+  padding:0px;
+  background: linear-gradient(to right, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%);
+}
+
+.xeni {
+  height: 200px;;
+  width:30%;
+  margin-left:500px;
+}
+
+.xeni-photo {
+  height: 100%;
+  width: 100%;
+}
+
+.message {
+  background: radial-gradient(ellipse at center, #7d7e7d 0%,#0e0e0e 100%);
+  height: 100%;
+  width:100%;
 }

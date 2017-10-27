@@ -34,16 +34,16 @@ componentDidMount() {
         const user = this.props.user;
         
         return (
-            <div>
+            <div className="home">
 
                 
                 
                     
+{/* <div className="xeni">
 
+<img className="xeni-photo"  src="https://image.ibb.co/dh6EVm/13131192_1007295365985536_6660129807187869381_o.jpg" alt="13131192_1007295365985536_6660129807187869381_o" border="0" />
 
-
-
-                
+                </div> */}
 
                 
                 {/* <video autoplay loop id="video-background" muted plays-inline>
@@ -58,6 +58,9 @@ componentDidMount() {
                 </div> */}
                
                 <div className="flex">
+
+                
+
                 <Nav header="Home" />
 
                
@@ -65,7 +68,7 @@ componentDidMount() {
                 </div>
                 
                     <div className="recent-posts">
-                    {/* <iframe width="854" height="480" src="https://www.youtube.com/embed/bhIl7zm77_s" frameBorder="0" allowFullScreen></iframe> */}
+                    <iframe width="854" height="480" src="https://www.youtube.com/embed/bhIl7zm77_s" frameBorder="0" allowFullScreen></iframe>
                    
                     {/* <a href=""> */}
 
