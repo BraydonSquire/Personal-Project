@@ -26,7 +26,7 @@ export default class Login extends Component {
                     <div className="title">
                     XENI
                     </div>
-                    <div className="login-button">
+                    <div id="photo" className="login-button">
                 <a href={ process.env.REACT_APP_LOGIN }><button className="login">Login</button></a>
                     </div>
                 </div>
