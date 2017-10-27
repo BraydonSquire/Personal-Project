@@ -10,7 +10,11 @@ const initialState = { //when the app is first run there is no state that is cre
     comment:'',
     comments:[],
     blogid:'',
-    deletedComment:''
+    deletedComment:'',
+    newBlog:'',
+    addBlog: '',
+    date: '',
+    title:''
 }
 
 const GET_USER_INFO = 'GET_USER_INFO';
@@ -171,6 +175,34 @@ export function deleteComment(commentid, blogid) {
     }
 }
 
+const TRACK_BLOG = 'TRACK_BLOG'
+
+export function addNewBlog(e){
+return {
+    type:TRACK_BLOG,
+    payload:e
+}
+}
+
+const ADD_BLOG = 'ADD_BLOG'
+
+export function addBlog(blog, date, title) {
+    console.log(blog, date, title)
+    const post = {
+        newBlog: blog,
+        date: date,
+        title: title
+    }
+    // const add = () => {
+         axios.post('/api/addblog', blog, date, title).then(res => {res.data})
+   
+    return {
+        type:ADD_BLOG,
+        payload:post
+        
+    }
+}
+
 
 
 export default function reducer(state = initialState, action) { //state = initialState is setup to not break the app when it is first run, since the state is originally undefined. state will only equals
@@ -210,6 +242,12 @@ export default function reducer(state = initialState, action) { //state = initia
             
        case DELETE_COMMENT + '_FULFILLED':
             return Object.assign( {}, state, {comments: action.payload })     
+
+       case TRACK_BLOG:
+            return Object.assign( {}, state, {newBlog: action.payload})     
+
+       case ADD_BLOG + '_FULFILLED':
+            return Object.assign( {}, state, {addBlog: action.payload})     
        
 
        case POST_COMMENT + '_FULFILLED':

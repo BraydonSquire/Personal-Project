@@ -35,7 +35,7 @@ constructor() {
            )
        })
         return(
-            <div>
+            <div className="blog-view">
             
            
             {/* <div className="title-bar">

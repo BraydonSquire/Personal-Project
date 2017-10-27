@@ -34,7 +34,7 @@ componentDidMount() {
 } )
 
         return(
-            <div>
+            <div className="photo-gallery">
             
            
             {/* <div className="title-bar">

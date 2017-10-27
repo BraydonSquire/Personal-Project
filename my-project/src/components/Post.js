@@ -69,7 +69,7 @@ class Post extends Component {
             
 
         return (
-            <div>
+            <div className="post-view">
             
            
             {/* <div className="title-bar">
