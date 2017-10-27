@@ -21,6 +21,8 @@ app.use(session({
 app.use(passport.initialize() );
 app.use(passport.session() );
 
+app.use( express.static( `${__dirname}/../build` ) ); //setting up droplet and build server
+
 //after the app.use's reference massive and connect it to your database URI. No idea why it's a URI and not a URL it just is :p
 massive(process.env.CONNECTION_STRING).then( db => {
     app.set('db',db) //use a .then after the db connection because it returns a promise. use a callbackfunction in the .then() that takes db as the param. use app.set to set the string 'db' to the db parameter.
@@ -107,6 +109,16 @@ app.post('/api/addblog', controller.addBlog)
 
 app.delete('/api/deletecomment', controller.deleteComment)
 
+
+
+
+
+
+
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 
 const port = 3001;
