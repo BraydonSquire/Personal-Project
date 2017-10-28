@@ -79,5 +79,12 @@ module.exports = {
         .then(response => {
             res.status(200).send(response.data)
         })
+    },
+    deletePhoto: (req, res, next) => {
+        const db = req.app.get('db')
+        db.delete_photo([req.params.id])
+        .then(response => {
+            res.status(200).send(response.data)
+        })
     }
 }

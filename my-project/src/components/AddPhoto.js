@@ -32,7 +32,7 @@ class AddPhoto extends Component {
             
             <input className="input-box" type='text' placeholder="New Image URL" onChange={(e) => this.props.fixPhoto(e.target.value)} />
             
-            <button onClick={ () => {this.props.addPhoto(this.props.input)}}>Add Photo</button>
+            <button onClick={ () => {this.props.addPhoto(this.props.input); setTimeout(this.props.getPhotos(),1000)}}>Add Photo</button>
         
             </div>
         )

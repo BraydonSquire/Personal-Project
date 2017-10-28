@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Nav from './Nav';
-import { getPhotos } from './../ducks/users';
+import { getPhotos, deletePhoto } from './../ducks/users';
 import { connect } from 'react-redux';
 import AddPhoto from './AddPhoto';
 import ImageZoom from 'react-medium-image-zoom';
@@ -27,9 +27,13 @@ componentDidMount() {
         console.log(photos[0].id)
         let list = photos.map( (e,i) => {//map over photos and get the links
     return (
-        <ImageZoom image={{ id:"photo", className:"photo-box", key:i, src:e.link, alt:''}} /> 
-        // <button></button>
-    
+        <div className="photo-box">
+        <ImageZoom image={{ id:"photo", className:"fill", key:i, src:e.link, alt:''}} /> 
+        { this.props.user.id === 1 ? 
+        <button onClick={ () => { this.props.deletePhoto(e.id); setTimeout(this.props.getPhotos(),1000) } } >
+        Delete Photo</button>
+        : null }
+         </div>
     )
 } )
 
@@ -65,9 +69,10 @@ function mapStateToProps(state) {
     console.log('state from Gallery view', state.photos);
     return {
         photos: state.photos,
-        user: state.user
+        user: state.user,
+        deletedPhoto: state.deletedPhoto
     }
 }
 
 
-export default connect(mapStateToProps, { getPhotos })(Gallery);
+export default connect(mapStateToProps, { getPhotos, deletePhoto })(Gallery);

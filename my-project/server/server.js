@@ -111,6 +111,8 @@ app.delete('/api/deletecomment', controller.deleteComment)
 
 app.delete('/api/deletepost/:id', controller.deletePost)
 
+app.delete('/api/deletephoto/:id', controller.deletePhoto)
+
 
 
 

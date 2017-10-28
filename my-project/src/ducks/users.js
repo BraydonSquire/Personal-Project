@@ -15,7 +15,8 @@ const initialState = { //when the app is first run there is no state that is cre
     addBlog: '',
     date: '',
     title:'',
-    deletedPost:''
+    deletedPost:'',
+    deletedPhoto:''
 }
 
 const GET_USER_INFO = 'GET_USER_INFO';
@@ -239,6 +240,20 @@ export function deletePost(id) {
     }
 }
 
+const DELETE_PHOTO = 'DELETE_PHOTO'
+
+export function deletePhoto(id) {
+console.log('delete photo ID:', id)
+const erase= axios.delete('/api/deletephoto/' + id)
+.then( res => {
+    console.log('deleted photo')
+})
+return {
+    type:DELETE_PHOTO,
+    payload:erase
+}
+}
+
 
 
 export default function reducer(state = initialState, action) { //state = initialState is setup to not break the app when it is first run, since the state is originally undefined. state will only equals
@@ -292,7 +307,10 @@ export default function reducer(state = initialState, action) { //state = initia
             return Object.assign( {}, state, {addBlog: action.payload})    
             
        case DELETE_BLOG_POST + '_FULFILLED':
-            return Object.assign({}, state, {deletedPost: action.payload})     
+            return Object.assign({}, state, {deletedPost: action.payload})    
+            
+       case DELETE_PHOTO + '_FULFILLED':
+            return Object.assign( {}, state, {deletedPhoto: action.payload} )     
        
 
        case POST_COMMENT + '_FULFILLED':
