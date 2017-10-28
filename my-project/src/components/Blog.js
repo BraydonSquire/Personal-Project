@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Nav from './Nav';
-import { getBlogs, getPost } from './../ducks/users'; //import needed prop from reducer
+import AddBlog from './AddBlog';
+import { getBlogs, getPost, deletePost } from './../ducks/users'; //import needed prop from reducer
 import { connect } from 'react-redux';//import connect to make this component subscribe to the store
 
 
@@ -27,6 +28,11 @@ constructor() {
                <div className="post-container" key={i}>
                     {item.title}  
                     <a onClick={ () => {this.props.getPost(item.blogid)}} href="#/post" className="post-button textdecor">View Full Post</a>
+                    
+                    { this.props.user.id === 1 ? <button onClick={ () => {this.props.deletePost(item.blogid)} }>
+                        Delete Post
+                    </button> : null}
+                
                 <div className="post-content"> 
                 {item.date}
                 
@@ -49,6 +55,7 @@ constructor() {
                 <div className="posts">
                     {list}
                     
+                    { this.props.user.id === 1 ? <AddBlog /> : null }
                 </div>
 
             </div>
@@ -59,9 +66,11 @@ constructor() {
 function mapStateToProps(state) {
     // console.log('state from blog view', state.blogPosts);
     return {
-        blogPosts: state.blogPosts
+        blogPosts: state.blogPosts,
+        user: state.user,
+        deletedPost: state.deletedPost
     }
 }
 
 
-export default connect(mapStateToProps, { getBlogs, getPost })(Blog);
+export default connect(mapStateToProps, { getBlogs, getPost, deletePost })(Blog);

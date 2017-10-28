@@ -12,7 +12,7 @@ export default class Login extends Component {
                 <div className="top-box"></div> */}
                                 
                                         
-                                            <iframe id="video-background" width="1920" height="1080" autoPlay src="https://player.vimeo.com/video/240066990?autoplay=1&loop=1&title=0&byline=0&portrait=0"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                            <iframe id="video-background" width="1920" height="1080" autoPlay src="https://player.vimeo.com/video/240066990?autoplay=1&loop=1&title=0&byline=0&portrait=0"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
                                     
                                 
                                 

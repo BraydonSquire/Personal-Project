@@ -14,7 +14,8 @@ const initialState = { //when the app is first run there is no state that is cre
     newBlog:'',
     addBlog: '',
     date: '',
-    title:''
+    title:'',
+    deletedPost:''
 }
 
 const GET_USER_INFO = 'GET_USER_INFO';
@@ -184,22 +185,57 @@ return {
 }
 }
 
+const TRACK_DATE = 'TRACK_DATE'
+
+export function trackDate(e){
+return {
+    type:TRACK_DATE,
+    payload:e
+}
+}
+
+const TRACK_TITLE = 'TRACK_TITLE'
+
+export function trackTitle(e){
+return {
+    type:TRACK_TITLE,
+    payload:e
+}
+}
+
 const ADD_BLOG = 'ADD_BLOG'
 
 export function addBlog(blog, date, title) {
     console.log(blog, date, title)
     const post = {
-        newBlog: blog,
+        addBlog: blog,
         date: date,
         title: title
     }
     // const add = () => {
-         axios.post('/api/addblog', blog, date, title).then(res => {res.data})
+         axios.post('/api/addblog', post).then(res => {res.data})
    
     return {
         type:ADD_BLOG,
         payload:post
         
+    }
+}
+
+const DELETE_BLOG_POST = 'DELETE_BLOG_POST'
+
+export function deletePost(id) {
+    console.log('Deleting blog post',id)
+    const erase = axios.delete('/api/deletepost/' + id )
+    .then( res => {
+        console.log('deletePost action creator')
+        
+        
+        
+    })
+    return {
+        type:DELETE_BLOG_POST,
+        payload:erase
     }
 }
 
@@ -244,10 +280,19 @@ export default function reducer(state = initialState, action) { //state = initia
             return Object.assign( {}, state, {comments: action.payload })     
 
        case TRACK_BLOG:
-            return Object.assign( {}, state, {newBlog: action.payload})     
+            return Object.assign( {}, state, {newBlog: action.payload})
+            
+       case TRACK_DATE:
+            return Object.assign( {}, state, {date: action.payload})
+
+       case TRACK_TITLE:
+            return Object.assign( {}, state, {title: action.payload})
 
        case ADD_BLOG + '_FULFILLED':
-            return Object.assign( {}, state, {addBlog: action.payload})     
+            return Object.assign( {}, state, {addBlog: action.payload})    
+            
+       case DELETE_BLOG_POST + '_FULFILLED':
+            return Object.assign({}, state, {deletedPost: action.payload})     
        
 
        case POST_COMMENT + '_FULFILLED':

@@ -67,7 +67,15 @@ module.exports = {
     addBlog: (req, res, next) => {
         console.log('addBlog controller', req.body)
         const db = req.app.get('db')
-        db.add_blog(req.body.blog)
+        db.add_blog([req.body.addBlog, req.body.date, req.body.title])
+        .then(response => {
+            res.status(200).send(response.data)
+        })
+    },
+    deletePost: (req, res, next) => {
+        console.log('deletePost controller req.body:', req.body)
+        const db = req.app.get('db')
+        db.delete_post([req.params.id])
         .then(response => {
             res.status(200).send(response.data)
         })

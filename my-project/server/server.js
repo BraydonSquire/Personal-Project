@@ -109,6 +109,8 @@ app.post('/api/addblog', controller.addBlog)
 
 app.delete('/api/deletecomment', controller.deleteComment)
 
+app.delete('/api/deletepost/:id', controller.deletePost)
+
 
 
 
