@@ -37,7 +37,7 @@ const GET_ALL_BLOGS = 'GET_ALL_BLOGS'; //set it as a string value because reason
 export function getBlogs() { //export the function after the const is defined
     const blogPosts = axios.get('/api/allblogs') //the payload is equal to axios.get('the endpoint you made with the controller logic in the server file')
     .then( res => { //the payload is also equal to everything after the endpoint. it's equal to the whole function basically
-        console.log('get all blogs',res.data)
+        // console.log('get all blogs',res.data)
         return res.data
     })
     return {
@@ -214,7 +214,9 @@ export function addBlog(blog, date, title) {
         title: title
     }
     // const add = () => {
-         axios.post('/api/addblog', post).then(res => {res.data})
+         axios.post('/api/addblog', post).then(res => {
+            return axios.get('/api/allblogs')
+         }).then(res => {res.data})
    
     return {
         type:ADD_BLOG,
@@ -228,8 +230,12 @@ const DELETE_BLOG_POST = 'DELETE_BLOG_POST'
 export function deletePost(id) {
     console.log('Deleting blog post',id)
     const erase = axios.delete('/api/deletepost/' + id )
+    .then(res => {
+        return axios.get('/api/allblogs')
+    })
     .then( res => {
-        console.log('deletePost action creator')
+        console.log('deletePost action creator', res.data)
+        return res.data
         
         
         

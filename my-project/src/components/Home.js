@@ -68,7 +68,7 @@ componentDidMount() {
                 </div>
                 
                     <div className="recent-posts">
-                    <iframe width="854" height="480" src="https://www.youtube.com/embed/bhIl7zm77_s" frameBorder="0" allowFullScreen></iframe>
+                    <iframe width="1000" height="480" src="https://www.youtube.com/embed/bhIl7zm77_s" frameBorder="0" allowFullScreen></iframe>
                    
                     {/* <a href=""> */}
 

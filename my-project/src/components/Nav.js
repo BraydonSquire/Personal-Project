@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './../sass/index.css';
+import {Link} from 'react-router-dom';
 
 class Nav extends Component {
     
@@ -28,10 +29,10 @@ class Nav extends Component {
                             Gallery
                         </a> */}
 
-<a href="#/home" className="textdecor"> <span className="header-logout">Home</span>  </a>
-               <a href="#/gallery" className="textdecor"> <span className="header-logout">Gallery</span> </a> 
-               <a href="#/blog" className="textdecor"> <span className="header-logout">Blog</span>  </a>
-               <a href="#/music" className="textdecor"> <span className="header-logout">Music</span>  </a>
+<Link to="/home" className="textdecor"> <span className="header-logout">Home</span>  </Link>
+               <Link  to="/gallery" className="textdecor"> <span className="header-logout">Gallery</span> </Link> 
+               <Link  to="/blog" className="textdecor"> <span className="header-logout">Blog</span>  </Link>
+               <Link  to="/music" className="textdecor"> <span className="header-logout">Music</span>  </Link>
                {/* <a href='http://localhost:3001/auth/logout' className="navlink">Log out</a> */}
 
                 </div>

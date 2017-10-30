@@ -85,7 +85,7 @@
 
 .posts {
   height: 900px;
-  width:900px;
+  width:1000px;
   /* border-style: solid;
   border-color: blue; */
   background: rgb(24,23,23);
@@ -99,9 +99,9 @@
 
 .music {
   height: 900px;
-  width:800px;
-  border-style: solid;
-  border-color: yellow;
+  width:1000px;
+  /* border-style: solid; */
+  /* border-color: yellow; */
   justify-content: center;
   display: flex;
   margin: auto;
@@ -113,9 +113,9 @@
 
 .recent-posts {
   height: 900px;
-  width:800px;
-  border-style: solid;
-  border-color: rgb(196, 19, 166);
+  width:1000px;
+  /* border-style: solid; */
+  /* border-color: rgb(196, 19, 166); */
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
@@ -319,8 +319,8 @@
   background: rgb(24,23,23);
   width: 99.5%;
   height: 30%;
-  border-color: orangered;
-  border-style: solid;
+  /* border-color: orangered; */
+  /* border-style: solid; */
   border-radius: 3px;
   display: flex;
   justify-content: center;
@@ -351,8 +351,8 @@
 
 .comment-list {
   color: whitesmoke;
-  border-color: rgba(255, 255, 255, 0.288);
-  width:100%;
+  border-color: rgba(56, 50, 50, 0.699);
+  width:99.5%;
   border-style: solid;
   height: 20%;
   border-radius: 3px;
@@ -361,7 +361,8 @@
 
 .soundcloud {
   width:100%;
-  margin-top:-28px;
+  margin-bottom:30px;
+  margin-top: -12px;
 }
 
 /* .video {

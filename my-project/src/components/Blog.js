@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Nav from './Nav';
 import AddBlog from './AddBlog';
 import { getBlogs, getPost, deletePost } from './../ducks/users'; //import needed prop from reducer
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';//import connect to make this component subscribe to the store
 
 
@@ -24,10 +25,11 @@ constructor() {
     render(){
        const blogPosts = this.props.blogPosts;
        let list = blogPosts.map( (item, i) => {
+           console.log('item',item)
            return (
                <div className="post-container" key={i}>
                     {item.title}  
-                    <a onClick={ () => {this.props.getPost(item.blogid)}} href="#/post" className="post-button textdecor">View Full Post</a>
+                    <Link onClick={ () => {this.props.getPost(item.blogid)}} to="/post" className="post-button textdecor">View Full Post</Link>
                     
                     { this.props.user.id === 1 ? <button onClick={ () => {this.props.deletePost(item.blogid)} }>
                         Delete Post
