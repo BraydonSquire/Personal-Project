@@ -16,7 +16,7 @@ class Routers extends Component {
         return(
             <Router>
                 <div className="flex">
-                    <Route exact path='/auth' component={ Login } />
+                    <Route exact path='/' component={ Login } />
                     <Route path='/home' component={ Home } />
                     <Route path='/gallery' component={ Gallery } />
                     <Route path='/music' component={Music} />

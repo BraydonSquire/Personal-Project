@@ -61,7 +61,7 @@ passport.use(new Auth0Strategy({
 
 app.get('/auth', passport.authenticate('auth0'));//you MUST pass in the exact string of 'auth0' for it to work.
 app.get('/auth/callback', passport.authenticate('auth0', {// the second argument on the authenticate here is an object with success and fail redirect paths
-    successRedirect:'http://localhost:3000/#/home',
+    successRedirect:process.env.SUCCESS_REDIRECT,
     failureRedirect:'/auth'
 }));
  
