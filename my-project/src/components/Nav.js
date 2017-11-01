@@ -42,7 +42,7 @@ class Nav extends Component {
                 </div>
 
                <div className="header-child-right">
-                        <a href="http://localhost:3001/auth/logout" className="navlink">
+                        <a href="/auth/logout" className="navlink">
                     <span className="header-logout">Logout</span>
                 </a>
                 </div>
