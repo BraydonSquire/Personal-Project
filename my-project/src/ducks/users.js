@@ -65,7 +65,7 @@ const GET_BLOG_POST = 'GET_BLOG_POST'
 
 export function getPost(id) {
     console.log('getting blog post',id)
-    const post = axios.get('/api/post/' + id )
+  const post =  axios.get('/api/post/' + id )
     .then( res => {
         console.log('post content:', res.data)
         return res.data[0]
@@ -209,7 +209,7 @@ const ADD_BLOG = 'ADD_BLOG'
 export function addBlog(blog, date, title) {
     console.log(blog, date, title)
     const post = {
-        addBlog: blog,
+        content: blog,
         date: date,
         title: title
     }
@@ -282,6 +282,7 @@ export default function reducer(state = initialState, action) { //state = initia
             return Object.assign( {}, state, { photos: action.payload }) 
 
        case GET_BLOG_POST + '_FULFILLED':
+       console.log('new thing',action.payload)
             return Object.assign( {}, state, { post: action.payload })     
 
        case ADD_PHOTO + '_FULFILLED':

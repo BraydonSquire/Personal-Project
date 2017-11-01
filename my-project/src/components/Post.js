@@ -20,9 +20,9 @@ class Post extends Component {
     
 
     componentDidMount() {
-        console.log('hey')
+        // console.log('hey')
         
-         this.props.getPost();
+        //  this.props.getPost();
          this.props.getComments(this.props.post.blogid);
          console.log('componentDidMount blogid',this.props.post.blogid)//figure this out
     }
@@ -49,7 +49,7 @@ class Post extends Component {
     
     
             const post = [this.props.post]; //wrap the props in an array so that the .map() works
-            console.log('this.props.post',this.props.post)
+            console.log('this.props.post',[this.props.post])
           
             let fullPost = post.map( (item, i) => {
                 return(

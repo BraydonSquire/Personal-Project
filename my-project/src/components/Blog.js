@@ -26,6 +26,7 @@ constructor() {
        const blogPosts = this.props.blogPosts;
        let list = blogPosts.map( (item, i) => {
            console.log('item',item)
+           console.log('PROPS', this.props)
            return (
                <div className="post-container" key={i}>
                     {item.title}  

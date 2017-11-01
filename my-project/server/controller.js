@@ -17,9 +17,10 @@ module.exports = {
     },
     getPost: (req, res, next) => {
         const db = req.app.get('db')
-        db.get_post([req.params.id])
+        console.log(req.params.id)
+        db.get_post([+req.params.id])
         .then(response => {
-            console.log(response,req.params.id)
+            console.log('test',response, req.params.id)
             res.status(200).send(response)
         })
     },
@@ -67,7 +68,7 @@ module.exports = {
     addBlog: (req, res, next) => {
         console.log('addBlog controller', req.body)
         const db = req.app.get('db')
-        db.add_blog([req.body.addBlog, req.body.date, req.body.title])
+        db.add_blog([req.body.content, req.body.date, req.body.title])
         .then(response => {
             res.status(200).send(response.data)
         })
