@@ -20,7 +20,7 @@ class AddPhoto extends Component {
 
      setInput = function(e) {
         this.setState({input: e.target.value})
-        console.log(this.state.input)
+        // console.log(this.state.input)
     }
    
 
@@ -42,7 +42,7 @@ class AddPhoto extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log('state from addPhoto component', state.input);
+    // console.log('state from addPhoto component', state.input);
     return {
         photos: state.addPhoto,
         input: state.input

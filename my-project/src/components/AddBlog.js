@@ -49,7 +49,7 @@ class AddBlog extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log('state from addBlog component', state.newBlog);
+    // console.log('state from addBlog component', state.newBlog);
     return {
         newBlog: state.newBlog,
         addBlog: state.addBlog,

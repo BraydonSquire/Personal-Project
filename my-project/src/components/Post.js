@@ -24,7 +24,7 @@ class Post extends Component {
         
         //  this.props.getPost();
          this.props.getComments(this.props.post.blogid);
-         console.log('componentDidMount blogid',this.props.post.blogid)//figure this out
+        //  console.log('componentDidMount blogid',this.props.post.blogid)//figure this out
     }
     
     

@@ -89,7 +89,7 @@ componentDidMount() {
 } 
 
 function mapStateToProps(state) {
-    console.log('state from Home', state);
+    // console.log('state from Home', state);
     return {
         user: state.user
     }
