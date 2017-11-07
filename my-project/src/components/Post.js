@@ -39,7 +39,7 @@ class Post extends Component {
             return(
                 <div key={i} className="comment-list">
                     {e.comments}
-                    { this.props.user.id===1 || e.userid===this.props.user.id ? 
+                    { this.props.user.id===1 || 2 || e.userid===this.props.user.id ? 
                     <button onClick={ () => {deleteComment(e.commentid,this.props.post.blogid);setTimeout(this.props.getComments(this.props.post.blogid),1000)
                     } }>Delete Comment</button> : null}
                 </div>

@@ -32,7 +32,7 @@ constructor() {
                     {item.title}  
                     <Link onClick={ () => {this.props.getPost(item.blogid)}} to="/post" className="post-button textdecor">View Full Post</Link>
                     
-                    { this.props.user.id === 1 ? <button onClick={ () => {this.props.deletePost(item.blogid)} }>
+                    { this.props.user.id === 1 || 2 ? <button onClick={ () => {this.props.deletePost(item.blogid)} }>
                         Delete Post
                     </button> : null}
                 
@@ -58,7 +58,7 @@ constructor() {
                 <div className="posts">
                     {list}
                     
-                    { this.props.user.id === 1 ? <AddBlog /> : null }
+                    { this.props.user.id === 1 || 2 ? <AddBlog /> : null }
                 </div>
 
             </div>

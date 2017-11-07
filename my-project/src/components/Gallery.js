@@ -29,7 +29,7 @@ componentDidMount() {
     return (
         <div className="photo-box">
         <ImageZoom image={{ id:"photo", className:"fill", key:i, src:e.link, alt:''}} /> 
-        { this.props.user.id === 1 ? 
+        { this.props.user.id === 1 || 2 ? 
         <button onClick={ () => { this.props.deletePhoto(e.id); setTimeout(this.props.getPhotos(),1000) } } >
         Delete Photo</button>
         : null }
@@ -57,7 +57,7 @@ componentDidMount() {
                 
             </div>
 
-            { this.props.user.id===1 ? <AddPhoto  /> : null}
+            { this.props.user.id===1 || 2 ? <AddPhoto  /> : null}
                 
             </div>
             //conditionally rendering the addphoto only if the user is the admin
